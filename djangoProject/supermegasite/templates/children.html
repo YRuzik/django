@@ -1,0 +1,583 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- fontawesome icon cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 40px;">
+  <div class="container-fluid w-75 ps-5">
+    <div class="collapse navbar-collapse d-flex justify-content-start" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            c. Los-Vegas
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Moscow</a></li>
+            <li><a class="dropdown-item" href="#">Saint Petersburg</a></li>
+            <li><a class="dropdown-item" href="#">Nizhniy Novgorod</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <nav class="navbar navbar-light" style="background-color: white;">
+      <div class="container-fluid d-flex justify-content-around">
+          <ul class="navbar-nav ms-2 fs-5" style="flex-direction: row">
+        <li class="nav-item ms-3">
+          <a class="nav-link" aria-current="page" href="{% url "woman" %}">Women</a>
+        </li>
+        <li class="nav-item ms-3">
+          <a class="nav-link" href="{% url "man" %}">Men</a>
+        </li>
+        <li class="nav-item ms-3 me-3">
+          <a class="nav-link active" href="{% url "children" %}">Children</a>
+        </li>
+      </ul>
+        <a class="navbar-brand mx-auto position-absolute fs-2 fw-bolder" href="{% url "index" %}">
+          BIG-SHOES
+        </a>
+          <ul class="navbar-nav ms-2 fs-5" style="flex-direction: row">
+        <li class="nav-item ms-2">
+          <a class="nav-link" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Log In</a>
+        </li>
+        <li class="nav-item ms-2">
+
+          <a class="nav-link ms-2 active" href="{% url "basket" %}"><i class="fas fa-shopping-basket"></i> Basket</a>
+        </li>
+      </ul>
+        </form>
+
+          <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form>
+                      <!-- Email input -->
+                      <div class="form-outline mb-4">
+                        <input type="email" id="formLogInEmail" class="form-control" />
+                        <label class="form-label" for="formLogInEmail">Email address</label>
+                      </div>
+
+                      <!-- Password input -->
+                      <div class="form-outline mb-2">
+                        <input type="password" id="formLogInPassword" class="form-control" />
+                        <label class="form-label" for="formLogInPassword">Password</label>
+                      </div>
+
+                      <!-- 2 column grid layout for inline styling -->
+                      <div class="row mb-4 ms-4">
+                        <div class="col d-flex justify-content-center">
+                          <!-- Checkbox -->
+                          <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" value="" id="formLogInRememberMe" checked />
+                            <label class="form-check-label" for="formLogInRememberMe"> Remember me </label>
+                          </div>
+                        </div>
+
+                        <div class="col">
+                          <!-- Simple link -->
+                          <a class="nav-link" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#forgotModal">Forgot password?</a>
+                        </div>
+                      </div>
+
+                      <!-- Submit button -->
+                      <button type="button" class="btn btn-dark btn-block mb-4 " style="width: 100%">Log in</button>
+
+                      <!-- Register buttons -->
+                      <div class="text-center">
+                        <p class="m-0">Not a member? <a class="nav-link" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></p>
+
+                      </div>
+                    </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+          <!-- Register form -->
+          <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Registration</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form>
+                      <!-- Email input -->
+                      <div class="form-outline mb-2">
+                        <input type="email" id="formRegistrEmail" class="form-control" />
+                        <label class="form-label" for="formRegistrEmail">Email address</label>
+                      </div>
+
+                      <!-- Password input -->
+                      <div class="form-outline mb-2">
+                        <input type="password" id="formRegistrPassword" class="form-control" />
+                        <label class="form-label" for="formRegistrPassword">Password</label>
+                      </div>
+
+                      <!-- Password validation input -->
+                      <div class="form-outline mb-2">
+                        <input type="password" id="formRegistrPasswordRepeat" class="form-control" />
+                        <label class="form-label" for="formRegistrPasswordRepeat">Repeat Password</label>
+                      </div>
+
+                      <!-- 2 column grid layout for inline styling -->
+                      <div class="row mb-4 ms-4">
+                        <div class="col d-flex justify-content-center">
+                          <!-- Checkbox -->
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="formSubNews" checked />
+                            <label class="form-check-label" for="formSubNews"> Subscribe to the newsletter </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Submit button -->
+                      <button type="button" class="btn btn-dark btn-block mb-2 " style="width: 100%">Sign in</button>
+
+                      </div>
+                    </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Forgot Password Form -->
+          <div class="modal fade" id="forgotModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Forgot Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form>
+                      <!-- Email input -->
+                      <div class="form-outline mb-2">
+                        <input type="email" id="form1ForgotPassword" class="form-control" />
+                        <label class="form-label" for="form2Example1">Email address</label>
+                      </div>
+
+                      <!-- 2 column grid layout for inline styling -->
+                      <div class="row mb-4 ms-2">
+                        <div class="col d-flex justify-content-start">
+                            Set your E-mail in form.
+                        </div>
+                      </div>
+
+                      <!-- Submit button -->
+                      <button type="button" class="btn btn-dark btn-block mb-2 " style="width: 100%">Send</button>
+
+                      </div>
+                    </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+        <div class="container-fluid d-flex justify-content-around w-100">
+            <form class="d-flex pb-3 pt-3">
+                <input class="form-control me-1 rounded-pill" type="search" placeholder="Search" aria-label="Search" style="width: 600px">
+                <button class="btn btn-dark rounded-pill" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+    </nav>
+
+
+
+    <div class="container">
+        <div class="container-fluid d-grid ms-5 pt-5">
+            <h2 class="">Children Shoes</h2>
+            <h4 class="">Filters</h4>
+            </div>
+        </div>
+
+    <div class="container d-flex w-auto">
+        <div class="container-fluid d-grid ms-5 w-25" style="margin: 0; height: 600px">
+            <h4 class="mt-3">Conditions</h4>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                <label class="form-check-label" for="flexCheckDefault">
+                    NEW
+                </label>
+            </div>
+
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                <label class="form-check-label" for="flexCheckDefault">
+                    USED
+                </label>
+            </div>
+
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+                <label class="form-check-label" for="flexCheckDefault">
+                    COLLECTIBLE
+                </label>
+            </div>
+
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+                <label class="form-check-label" for="flexCheckDefault">
+                    RENEWED
+                </label>
+            </div>
+
+            <h4 class="mt-3">Avg. Customer Review</h4>
+            <div class="container d-flex mt-200">
+                <div class="row">
+                    <div class="p-0">
+                        <div class="stars">
+                          <form action="">
+                            <input class="star star-5" id="star-5" type="radio" name="star"/>
+                            <label class="star star-5" for="star-5"></label>
+                            <input class="star star-4" id="star-4" type="radio" name="star"/>
+                            <label class="star star-4" for="star-4"></label>
+                            <input class="star star-3" id="star-3" type="radio" name="star"/>
+                            <label class="star star-3" for="star-3"></label>
+                            <input class="star star-2" id="star-2" type="radio" name="star"/>
+                            <label class="star star-2" for="star-2"></label>
+                            <input class="star star-1" id="star-1" type="radio" name="star"/>
+                            <label class="star star-1" for="star-1"></label>
+                          </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="mt-3">Price</h4>
+            <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    UNDER 25$
+                  </label>
+            </div>
+            <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    25$ - 50$
+                  </label>
+            </div>
+            <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    50$ - 100$
+                  </label>
+            </div>
+            <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    100$ - 200$
+                  </label>
+            </div>
+            <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    ABOVE 200$
+                  </label>
+            </div>
+
+            <h4 class="mt-3">Size</h4>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault5">
+                <label class="form-check-label" for="flexCheckDefault">
+                    28
+                </label>
+            </div>
+
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault6">
+                <label class="form-check-label" for="flexCheckDefault">
+                    30
+                </label>
+            </div>
+
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault7">
+                <label class="form-check-label" for="flexCheckDefault">
+                    32
+                </label>
+            </div>
+
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault8">
+                <label class="form-check-label" for="flexCheckDefault">
+                    34
+                </label>
+            </div>
+
+            </div>
+               <div class="container-fluid d-flex pt-3">
+            <section class="section-products pt-0">
+		<div class="container pt-0">
+				<div class="row">
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-1" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="checkShoe.html"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">N1ke Red Sneakers</h3>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-2" class="single-product">
+										<div class="part-1">
+												<span class="discount">15% off</span>
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">idk Brown Sneakers</h3>
+                                                <h4 class="product-old-price">$79.99</h4>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-3" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Colored N1ke Sneakers</h3>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-4" class="single-product">
+										<div class="part-1">
+												<span class="new">new</span>
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Nike Green Sneakers</h3>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-5" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">N1ke Orange Sneakers</h3>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-6" class="single-product">
+										<div class="part-1">
+												<span class="discount">15% off</span>
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Blue Shoes</h3>
+                                                <h4 class="product-old-price">$79.99</h4>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-7" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Casual Sneakers</h3>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-8" class="single-product">
+										<div class="part-1">
+												<span class="new">new</span>
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">N1ke Black Sneakers</h3>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+                        <!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-1" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="checkShoe.html"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">N1ke Red Sneakers</h3>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-2" class="single-product">
+										<div class="part-1">
+												<span class="discount">15% off</span>
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">idk Brown Sneakers</h3>
+                                                <h4 class="product-old-price">$79.99</h4>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-3" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Colored N1ke Sneakers</h3>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-4" class="single-product">
+										<div class="part-1">
+												<span class="new">new</span>
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Nike Green Sneakers</h3>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+				</div>
+		</div>
+</section>
+        </div>
+        </div>
+    </div>
+
+<footer class="bg-dark text-center text-white">
+  <div class="container p-4">
+    <section class="mb-4">
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-vk"></i
+      ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-telegram"></i
+      ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-pinterest"></i
+      ></a>
+    </section>
+    <section class="">
+      <form action="">
+        <div class="row d-flex justify-content-center">
+          <div class="col-auto">
+            <p class="pt-2">
+              <strong>Sign up for our newsletter</strong>
+            </p>
+          </div>
+          <div class="col-md-5 col-12">
+            <div class="form-outline form-white mb-4">
+              <input type="email" id="form5Example21" class="form-control" />
+              <label class="form-label" for="form5Example21">Email address</label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-outline-light mb-4">
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <section class="mb-4">
+      <p>
+        Our company works only with official suppliers and does not support the sale of fakes. Also, don't forget to tell your friends about us on social networks and subscribe to the newsletter!
+      </p>
+    </section>
+
+  </div>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright: BIG-SHOES
+  </div>
+
+</footer>
+
+
+
+</body>
+</html>

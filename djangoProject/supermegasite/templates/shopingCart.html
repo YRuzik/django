@@ -1,0 +1,407 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- fontawesome icon cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 40px;">
+  <div class="container-fluid w-75 ps-5">
+    <div class="collapse navbar-collapse d-flex justify-content-start" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            c. Los-Vegas
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Moscow</a></li>
+            <li><a class="dropdown-item" href="#">Saint Petersburg</a></li>
+            <li><a class="dropdown-item" href="#">Nizhniy Novgorod</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <nav class="navbar navbar-light" style="background-color: white;">
+      <div class="container-fluid d-flex justify-content-around">
+          <ul class="navbar-nav ms-2 fs-5" style="flex-direction: row">
+        <li class="nav-item ms-3">
+          <a class="nav-link" aria-current="page" href="{% url "woman" %}">Women</a>
+        </li>
+        <li class="nav-item ms-3">
+          <a class="nav-link" href="{% url "man" %}">Men</a>
+        </li>
+        <li class="nav-item ms-3 me-3">
+          <a class="nav-link" href="{% url "children" %}">Children</a>
+        </li>
+      </ul>
+        <a class="navbar-brand mx-auto position-absolute fs-2 fw-bolder" href="{% url "index" %}">
+          BIG-SHOES
+        </a>
+          <ul class="navbar-nav ms-2 fs-5" style="flex-direction: row">
+        <li class="nav-item ms-2">
+          <a class="nav-link" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Log In</a>
+        </li>
+        <li class="nav-item ms-2">
+
+          <a class="nav-link ms-2 active" href="{% url "basket" %}"><i class="fas fa-shopping-basket"></i> Basket</a>
+        </li>
+      </ul>
+        </form>
+
+          <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form>
+                      <!-- Email input -->
+                      <div class="form-outline mb-4">
+                        <input type="email" id="formLogInEmail" class="form-control" />
+                        <label class="form-label" for="formLogInEmail">Email address</label>
+                      </div>
+
+                      <!-- Password input -->
+                      <div class="form-outline mb-2">
+                        <input type="password" id="formLogInPassword" class="form-control" />
+                        <label class="form-label" for="formLogInPassword">Password</label>
+                      </div>
+
+                      <!-- 2 column grid layout for inline styling -->
+                      <div class="row mb-4 ms-4">
+                        <div class="col d-flex justify-content-center">
+                          <!-- Checkbox -->
+                          <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" value="" id="formLogInRememberMe" checked />
+                            <label class="form-check-label" for="formLogInRememberMe"> Remember me </label>
+                          </div>
+                        </div>
+
+                        <div class="col">
+                          <!-- Simple link -->
+                          <a class="nav-link" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#forgotModal">Forgot password?</a>
+                        </div>
+                      </div>
+
+                      <!-- Submit button -->
+                      <button type="button" class="btn btn-dark btn-block mb-4 " style="width: 100%">Log in</button>
+
+                      <!-- Register buttons -->
+                      <div class="text-center">
+                        <p class="m-0">Not a member? <a class="nav-link" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></p>
+
+                      </div>
+                    </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+          <!-- Register form -->
+          <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Registration</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form>
+                      <!-- Email input -->
+                      <div class="form-outline mb-2">
+                        <input type="email" id="formRegistrEmail" class="form-control" />
+                        <label class="form-label" for="formRegistrEmail">Email address</label>
+                      </div>
+
+                      <!-- Password input -->
+                      <div class="form-outline mb-2">
+                        <input type="password" id="formRegistrPassword" class="form-control" />
+                        <label class="form-label" for="formRegistrPassword">Password</label>
+                      </div>
+
+                      <!-- Password validation input -->
+                      <div class="form-outline mb-2">
+                        <input type="password" id="formRegistrPasswordRepeat" class="form-control" />
+                        <label class="form-label" for="formRegistrPasswordRepeat">Repeat Password</label>
+                      </div>
+
+                      <!-- 2 column grid layout for inline styling -->
+                      <div class="row mb-4 ms-4">
+                        <div class="col d-flex justify-content-center">
+                          <!-- Checkbox -->
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="formSubNews" checked />
+                            <label class="form-check-label" for="formSubNews"> Subscribe to the newsletter </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Submit button -->
+                      <button type="button" class="btn btn-dark btn-block mb-2 " style="width: 100%">Sign in</button>
+
+                      </div>
+                    </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Forgot Password Form -->
+          <div class="modal fade" id="forgotModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Forgot Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form>
+                      <!-- Email input -->
+                      <div class="form-outline mb-2">
+                        <input type="email" id="form1ForgotPassword" class="form-control" />
+                        <label class="form-label" for="form2Example1">Email address</label>
+                      </div>
+
+                      <!-- 2 column grid layout for inline styling -->
+                      <div class="row mb-4 ms-2">
+                        <div class="col d-flex justify-content-start">
+                            Set your E-mail in form.
+                        </div>
+                      </div>
+
+                      <!-- Submit button -->
+                      <button type="button" class="btn btn-dark btn-block mb-2 " style="width: 100%">Send</button>
+
+                      </div>
+                    </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+        <div class="container-fluid d-flex justify-content-around w-100">
+            <form class="d-flex pb-3 pt-3">
+                <input class="form-control me-1 rounded-pill" type="search" placeholder="Search" aria-label="Search" style="width: 600px">
+                <button class="btn btn-dark rounded-pill" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+    </nav>
+
+    <section class="h-100 h-custom" style="background-color: #eee;">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card shopping-cart" style="border-radius: 15px;">
+          <div class="card-body text-black">
+
+            <div class="row">
+              <div class="col-lg-6 px-5 py-4">
+
+                <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your products</h3>
+
+                <div class="d-flex align-items-center mb-5">
+                  <div class="flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1590673846749-e2fb8f655df8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                      class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
+                    <h5 class="text-dark">Cool Snickers</h5>
+                    <h6 style="color: #9e9e9e;">Color: white</h6>
+                    <div class="d-flex align-items-center">
+                      <p class="fw-bold mb-0 me-5 pe-3">799$</p>
+                      <div class="def-number-input number-input safari_only">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                          class="minus"></button>
+                        <input class="quantity fw-bold text-black" min="0" name="quantity" value="1"
+                          type="number">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                          class="plus"></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center mb-5">
+                  <div class="flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1551489186-cf8726f514f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                      class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
+                    <h5 class="text-dark">Another Cool Snickers</h5>
+                    <h6 style="color: #9e9e9e;">Color: white</h6>
+                    <div class="d-flex align-items-center">
+                      <p class="fw-bold mb-0 me-5 pe-3">239$</p>
+                      <div class="def-number-input number-input safari_only">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                          class="minus"></button>
+                        <input class="quantity fw-bold text-black" min="0" name="quantity" value="1"
+                          type="number">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                          class="plus"></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center mb-5">
+                  <div class="flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1574859154521-4f7aa07d91b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80"
+                      class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
+                    <h5 class="text-dark">Leopard Snickers</h5>
+                    <h6 style="color: #9e9e9e;">Color: leopard paint</h6>
+                    <div class="d-flex align-items-center">
+                      <p class="fw-bold mb-0 me-5 pe-3">659$</p>
+                      <div class="def-number-input number-input safari_only">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                          class="minus"></button>
+                        <input class="quantity fw-bold text-black" min="0" name="quantity" value="2"
+                          type="number">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                          class="plus"></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="mb-4" style="height: 2px; background-color: #1266f1; opacity: 1;">
+
+                <div class="d-flex justify-content-between px-x">
+                  <p class="fw-bold">Discount:</p>
+                  <p class="fw-bold">95$</p>
+                </div>
+                <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #e1f5fe;">
+                  <h5 class="fw-bold mb-0">Total:</h5>
+                  <h5 class="fw-bold mb-0">2261$</h5>
+                </div>
+
+              </div>
+              <div class="col-lg-6 px-5 py-4">
+
+                <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Payment</h3>
+
+                <form class="mb-5">
+
+                  <div class="form-outline mb-5">
+                    <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                      value="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                    <label class="form-label" for="typeText">Card Number</label>
+                  </div>
+
+                  <div class="form-outline mb-5">
+                    <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                      value="John Smith" />
+                    <label class="form-label" for="typeName">Name on card</label>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-5">
+                      <div class="form-outline">
+                        <input type="text" id="typeExp" class="form-control form-control-lg" value="01/22"
+                          size="7" id="exp" minlength="7" maxlength="7" />
+                        <label class="form-label" for="typeExp">Expiration</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-5">
+                      <div class="form-outline">
+                        <input type="password" id="typeText" class="form-control form-control-lg"
+                          value="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                        <label class="form-label" for="typeText">Cvv</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p class="mb-5">Please, check all forms on validation!</p>
+
+                  <button type="button" class="btn btn-dark btn-block btn-lg">Buy now</button>
+
+                  <h5 class="fw-bold mb-5" style="position: absolute; bottom: 0;">
+                    <a href="#!"><i class="fas fa-angle-left me-2"></i>Back to shopping</a>
+                  </h5>
+
+                </form>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-dark text-center text-white">
+  <div class="container p-4">
+    <section class="mb-4">
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-vk"></i
+      ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-telegram"></i
+      ></a>
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-pinterest"></i
+      ></a>
+    </section>
+    <section class="">
+      <form action="">
+        <div class="row d-flex justify-content-center">
+          <div class="col-auto">
+            <p class="pt-2">
+              <strong>Sign up for our newsletter</strong>
+            </p>
+          </div>
+          <div class="col-md-5 col-12">
+            <div class="form-outline form-white mb-4">
+              <input type="email" id="form5Example21" class="form-control" />
+              <label class="form-label" for="form5Example21">Email address</label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-outline-light mb-4">
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <section class="mb-4">
+      <p>
+        Our company works only with official suppliers and does not support the sale of fakes. Also, don't forget to tell your friends about us on social networks and subscribe to the newsletter!
+      </p>
+    </section>
+
+  </div>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright: BIG-SHOES
+  </div>
+
+</footer>
+
+
+
+</body>
+</html>
